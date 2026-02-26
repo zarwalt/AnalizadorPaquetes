@@ -5,7 +5,7 @@ public class AnalizadorPaquetes {
 	private String texto;
 	
 	public AnalizadorPaquetes(String texto) {
-		//Program_X:5.2_Y:3.1_ram
+		//Estructura de paquete: Program_X:5.2_Y:3.1_ram
 		if (texto != null && texto.startsWith("Program") && texto.endsWith("ram") && texto.length() >= 12) {
 			this.texto = texto;
 		} else {
@@ -14,14 +14,14 @@ public class AnalizadorPaquetes {
 		}
 	}
 	
-	public Double extraerX(){
+	private Double extraerX(){
 		var inicio =  this.texto.indexOf("X:") + 2 ;
 		var fin = this.texto.indexOf("_Y");
 		var posicionX = this.texto.substring(inicio, fin);
 		return Double.parseDouble(posicionX);
 	}
 	
-	public Double extraerY() {
+	private Double extraerY() {
 		var inicio =  this.texto.indexOf("Y:") + 2 ;
 		var fin = this.texto.indexOf("_ram");
 		var posicionY = this.texto.substring(inicio, fin);
